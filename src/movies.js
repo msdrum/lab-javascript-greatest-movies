@@ -5,15 +5,22 @@
 //const movies = require("./data.js"); // importando a array 'movies' do arquivo data.js.
 
 function getAllDirectors(moviesArray) {
-  //para cada elemento da array movies
-  const directorsArr = moviesArray.map(function (element) {
-    return element.director; // coloque dentro da array directorsArr todos os elementos com a key 'director'
+  //para cada elemento da array moviesArray (variável movies) coloque dentro da array directorsArr todos os elementos com a key 'director'.
+  const directorsArr = moviesArray.map((element) => {
+    return element.director;
   });
   return directorsArr;
 }
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
-function howManyMovies(moviesArray) {}
+function howManyMovies(moviesArray) {
+  const stevenDrama = moviesArray.filter((element) => {
+    return (
+      element.director === "Steven Spielberg" && element.genre.includes("Drama")
+    );
+  });
+  return stevenDrama.length;
+}
 
 // Iteration 3: All scores average - Get the average of all scores with 2 decimals
 function scoresAverage(moviesArray) {}
