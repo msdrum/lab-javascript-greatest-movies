@@ -39,7 +39,6 @@ function scoresAverage(moviesArray) {
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
 function dramaMoviesScore(moviesArray) {
-  // return scoresAverage(moviesArray.filter((m) => m.genre.includes("Drama")));
   const filtro = moviesArray.filter((item) => {
     if (!item.genre.includes("Drama")) {
       return 0;
