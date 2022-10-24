@@ -35,10 +35,14 @@ function scoresAverage(moviesArray) {
   });
 
   return Math.round((sum / bestScores.length) * 100) / 100; // calcular a média e retornar o número com 2 casas decimais
+  //return parseFloat(Math.round((sum / bestScores.length).toFixed(2)));
 }
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
 function dramaMoviesScore(moviesArray) {
+  /* if (moviesArray.length === 0) {
+    return 0;
+  }
   const filtro = moviesArray.filter((item) => {
     if (!item.genre.includes("Drama")) {
       return 0;
@@ -56,6 +60,23 @@ function dramaMoviesScore(moviesArray) {
   });
 
   return Math.round((sum / dramasScoresOnly.length) * 100) / 100;
+}*/
+
+  // separar todos os filmes de Drama dentro de uma array
+  const drama = moviesArray.filter((element) => {
+    return element.genre.includes("Drama");
+  });
+  if (!drama.length) {
+    return 0;
+  }
+
+  const scoreDrama = drama.reduce((acumulador, element) => {
+    return acumulador + element.score;
+  }, 0);
+
+  const result = scoreDrama / drama.length;
+
+  return +result.toFixed(2);
 }
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
